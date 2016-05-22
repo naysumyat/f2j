@@ -1,0 +1,9 @@
+<template name="footer_code">
+  <div class="footer-code {{moduleClass}}">
+    {{#if footerCode}}
+      {{#markdown}}{{footerCode}}{{/markdown}}
+    {{else}}
+      <a href="" target="_blank">developed by naysumyat</a>
+    {{/if}}
+  </div>
+</template>
