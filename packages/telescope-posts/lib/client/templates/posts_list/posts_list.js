@@ -14,9 +14,11 @@ Template.posts_list.helpers({
       return Iron.controller().getDescription();
   },
   postsCursor : function () {
+  //  console.log("postsCursor");
     if (this.postsCursor) { // not sure why this should ever be undefined, but it can apparently
       var posts = this.postsCursor.map(function (post, index) {
         post.rank = index;
+       console.log(post);
         return post;
       });
       return posts;

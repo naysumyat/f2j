@@ -109,7 +109,10 @@ Template.posts_list_controller.helpers({
     var postsReady = template.rReady.get(); // ⚡ reactive ⚡
 
     var parameters = Posts.parameters.get(terms);
+
     var postsCursor = Posts.find(parameters.find, parameters.options);
+
+    console.log(postsCursor);
 
     // if (debug) {
     //   console.log("// -------- data -------- //")
@@ -141,6 +144,9 @@ Template.posts_list_controller.helpers({
       controllerOptions: context.options // pass any options on to the template
 
     };
+
+   // console.log("data:");
+   // console.log(data);
 
     return data;
   }

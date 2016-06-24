@@ -4,6 +4,8 @@ Posts._ensureIndex({"status": 1, "postedAt": 1});
 
 Meteor.publish('postsList', function(terms) {
 
+
+
   this.unblock();
   
   if (this.userId) { // add currentUserId to terms if a user is logged in
@@ -16,6 +18,9 @@ Meteor.publish('postsList', function(terms) {
 
     return posts;
   }
+
+return Posts.find();
+
   return [];
 });
 

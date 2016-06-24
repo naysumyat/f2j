@@ -45,6 +45,8 @@ Posts.parameters.get = function (terms) {
 // Add a "view" property to terms which can be used to filter posts. 
 function addViewParameter (parameters, terms) {
 
+  var terms = (typeof terms != "undefined") ? terms : {};
+
   // if view is not defined, default to "top"
   var view = !!terms.view ? Telescope.utils.dashToCamel(terms.view) : 'top';
 
@@ -59,6 +61,8 @@ Telescope.callbacks.add("postsParameters", addViewParameter);
 // View Parameter
 // Add "after" and "before" properties to terms which can be used to limit posts in time. 
 function addTimeParameter (parameters, terms) {
+
+   var terms = (typeof terms != "undefined") ? terms : {};
 
   if (typeof parameters.find.postedAt === "undefined") {
   
@@ -84,6 +88,8 @@ Telescope.callbacks.add("postsParameters", addTimeParameter);
 
 // limit the number of items that can be requested at once
 function limitPosts (parameters, terms) {
+   var terms = (typeof terms != "undefined") ? terms : {};
+
   var maxLimit = 200;
   // if a limit was provided with the terms, add it too (note: limit=0 means "no limit")
   if (typeof terms.limit !== 'undefined') {
@@ -100,6 +106,8 @@ Telescope.callbacks.add("postsParameters", limitPosts);
 
 // hide future scheduled posts unless "showFuture" is set to true or postedAt is already defined
 function hideFuturePosts (parameters, terms) {
+
+   var terms = (typeof terms != "undefined") ? terms : {};
 
   // var now = new Date();
   var inOneHour = moment().add(1, "hour").toDate();

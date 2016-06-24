@@ -5,6 +5,9 @@ Template.posts_list_compact.helpers({
         post.rank = index;
         return post;
       });
+
+      console.log("posts...");
+      console.log(posts);
       return posts;
     } else {
       console.log('postsCursor not defined');

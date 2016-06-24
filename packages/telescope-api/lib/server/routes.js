@@ -1,7 +1,16 @@
 // for backwards compatibility's sake, accept a "limit" segment
-Picker.route('/api/:limit?', function(params, req, res, next) {
+Picker.route('/api/posts/:limit?', function(params, req, res, next) {
   if (typeof params.limit !== "undefined") {
     params.query.limit = params.limit;
   }
-  res.end(serveAPI(params.query));
+  res.end(servePostsAPI(params.query));
 });
+
+// for backwards compatibility's sake, accept a "limit" segment
+Picker.route('/api/categories/:limit?', function(params, req, res, next) {
+  if (typeof params.limit !== "undefined") {
+    params.query.limit = params.limit;
+  }
+  res.end(serveCategoriesAPI(params.query));
+});
+

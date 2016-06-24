@@ -1,10 +1,12 @@
-serveAPI = function(terms){
+servePostsAPI = function(terms){
   var posts = [];
 
   var parameters = Posts.parameters.get(terms);
 
   Posts.find(parameters.find, parameters.options).forEach(function(post) {
+    //console.log(post);
     var url = Posts.getLink(post);
+
     var postOutput = {
       title: post.title,
       headline: post.title, // for backwards compatibility
@@ -12,7 +14,11 @@ serveAPI = function(terms){
       date: post.postedAt,
       url: url,
       pageUrl: Posts.getPageUrl(post, true),
-      guid: post._id
+      guid: post._id,
+      categories: post.categories,
+      downvotes: post.downvotes,
+      upvotes: post.upvotes,
+
     };
 
     if(post.body)
@@ -62,6 +68,7 @@ serveAPI = function(terms){
     });
 
     postOutput.comments = comments;
+    
 
     posts.push(postOutput);
   });

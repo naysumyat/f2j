@@ -2,7 +2,7 @@
   "name": "TheFun2G",
   "description": "An  community app built with Meteor",
   "repository": "https://github.com/naysumyat/f2j/",
-  "logo": "http://picpaste.com/FUN2G_Splash_Logo_Large-ylLbq1xV.png",
+  "logo": "http://picpaste.com/pics/FUN2G_Splash_Logo_Large-ylLbq1xV.1463962779.png",
   "website": "http://www.naysumyat.com/",
   "addons": ["scalingo-mongodb"]
 }
